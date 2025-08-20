@@ -13,6 +13,7 @@
             --medium-blue: #87CEEB; /* Celeste medio */
             --dark-blue: #4682B4; /* Azul acero */
             --darker-blue: #1E90FF; /* Azul brillante */
+            --navy-blue: #000080; /* Azul marino */
             --shadow-1: 0 4px 8px rgba(0, 0, 0, 0.2);
             --shadow-2: 0 8px 16px rgba(0, 0, 0, 0.3);
             --shadow-3: 0 12px 24px rgba(0, 0, 0, 0.4);
@@ -22,8 +23,8 @@
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--white);
-            color: var(--dark-blue);
+            background-color: var(--navy-blue); /* Cambiado a azul marino */
+            color: var(--white); /* Cambiado a blanco para mejor lectura */
             line-height: 1.8;
             overflow-x: hidden;
         }
@@ -45,7 +46,7 @@
         header {
             text-align: center;
             padding: 4rem 1rem 2rem;
-            background-color: var(--light-blue);
+            background-color: var(--dark-blue); /* Color ajustado para el nuevo tema oscuro */
             margin-bottom: 2rem;
             border-bottom: 2px solid var(--medium-blue);
         }
@@ -54,13 +55,13 @@
             font-size: clamp(2.5rem, 5vw, 3.5rem);
             font-weight: 700;
             margin-bottom: 0.5rem;
-            color: var(--darker-blue);
+            color: var(--white); /* Cambiado a blanco */
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
         }
 
         header p {
             font-size: clamp(1rem, 1.5vw, 1.2rem);
-            color: var(--dark-blue);
+            color: var(--white); /* Cambiado a blanco */
             font-weight: 300;
         }
 
@@ -70,7 +71,7 @@
         }
 
         nav a {
-            color: var(--dark-blue);
+            color: var(--white); /* Cambiado a blanco */
             text-decoration: none;
             font-weight: 500;
             padding: 0.7rem 1.5rem;
@@ -103,6 +104,7 @@
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+            color: var(--dark-blue); /* Asegurar que el texto dentro sea oscuro */
         }
 
         .section.fade-in {
@@ -148,6 +150,7 @@
 
         .card-item .text-content {
             padding: 1.5rem;
+            color: var(--dark-blue);
         }
 
         .card-item h3 {
@@ -199,7 +202,7 @@
         footer {
             text-align: center;
             padding: 2rem;
-            color: var(--medium-blue);
+            color: var(--white); /* Cambiado a blanco */
             font-size: 0.9rem;
             border-top: 1px solid var(--light-blue);
             margin-top: 3rem;
