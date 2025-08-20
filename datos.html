@@ -5,200 +5,163 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Datos y Estadísticas - Contaminación en Guayaquil</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
 
         :root {
-            --dark-blue: #0A1128;
-            --main-blue: #0077B6;
-            --accent-blue: #00B4D8;
-            --white: #F8F9FA;
-            --light-gray: #E9ECEF;
+            --white: #FFFFFF;
+            --light-brown: #A67C52;
+            --medium-brown: #795548;
+            --dark-brown: #4E342E;
+            --light-gray: #F0F0F0;
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Open Sans', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--dark-blue);
-            color: var(--white);
-            line-height: 1.8;
-            position: relative;
+            background-color: var(--white);
+            color: var(--dark-brown);
+            line-height: 1.7;
             overflow-x: hidden;
         }
 
-        /* Particles.js Container */
-        #particles-js {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: radial-gradient(circle, #0f2027, #203a43, #2c5364);
-            animation: backgroundShift 20s infinite alternate;
-        }
-        
-        @keyframes backgroundShift {
-            0% { background-position: 0% 0%; }
-            100% { background-position: 100% 100%; }
-        }
-
-        /* Layout */
-        header, main, footer {
-            position: relative;
-            z-index: 1;
-        }
-
+        /* Header y Navegación */
         header {
             text-align: center;
-            padding: 4rem 1rem 2rem;
+            padding: 3rem 1rem 2rem;
+            border-bottom: 1px solid var(--light-brown);
+            margin-bottom: 2rem;
         }
 
         header h1 {
-            font-size: clamp(2rem, 5vw, 4rem);
-            font-weight: 600;
-            margin: 0;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--medium-brown);
         }
-        
+
         header p {
-            font-size: clamp(1rem, 2vw, 1.2rem);
+            font-size: clamp(1rem, 1.5vw, 1.1rem);
+            color: var(--light-brown);
             font-weight: 300;
-            color: var(--light-gray);
         }
 
         nav {
             text-align: center;
-            margin: 2rem 0;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50px;
-            padding: 0.5rem 1rem;
-            display: inline-block;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            margin-bottom: 3rem;
         }
-        
+
         nav a {
-            color: var(--white);
+            color: var(--medium-brown);
             text-decoration: none;
-            font-weight: 400;
-            padding: 0.8rem 1.5rem;
-            border-radius: 50px;
-            transition: all 0.3s ease;
+            font-weight: 600;
+            padding: 0.7rem 1.2rem;
+            margin: 0 0.8rem;
+            border-radius: 20px;
+            transition: color 0.3s ease, background-color 0.3s ease;
         }
-        
+
         nav a:hover {
-            background-color: var(--main-blue);
-            transform: scale(1.05);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            color: var(--white);
+            background-color: var(--light-brown);
         }
 
         /* Main Content */
         main {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: auto;
             padding: 2rem;
         }
-        
+
         .section {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 3rem;
-            margin-bottom: 3rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background-color: var(--white);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
             opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
         }
-        
+
         .section.fade-in {
             opacity: 1;
             transform: translateY(0);
         }
-        
+
         .section h2 {
-            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-size: clamp(1.7rem, 3vw, 2.2rem);
             font-weight: 600;
-            color: var(--accent-blue);
-            border-bottom: 2px solid var(--accent-blue);
+            color: var(--dark-brown);
+            border-bottom: 1px solid var(--light-brown);
             padding-bottom: 0.5rem;
             margin-bottom: 1.5rem;
         }
-
-        .section p {
-            color: var(--light-gray);
-        }
-
+        
         .stats-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
         }
-
+        
         .stat-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(8px);
+            background-color: var(--light-gray);
             padding: 2rem;
-            border-radius: 15px;
+            border-radius: 10px;
             text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .stat-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         .stat-card h3 {
-            color: var(--accent-blue);
-            font-size: 1.5rem;
+            color: var(--medium-brown);
+            font-size: 1.4rem;
             margin-bottom: 0.5rem;
         }
 
         .stat-card p {
-            font-size: 3rem;
-            font-weight: bold;
-            color: var(--main-blue);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--dark-brown);
             margin: 0;
-            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
         }
 
         .btn-link {
             display: inline-block;
-            padding: 1rem 2.5rem;
-            background: linear-gradient(45deg, #1cb5e0, #000046);
+            padding: 0.8rem 1.5rem;
+            background-color: var(--light-brown);
             color: var(--white);
             text-decoration: none;
-            border-radius: 50px;
+            border-radius: 20px;
             font-weight: 600;
-            text-align: center;
-            margin: 2rem auto;
-            display: block;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-top: 1rem;
         }
-        
+
         .btn-link:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-            filter: brightness(1.2);
+            background-color: var(--medium-brown);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         }
 
         footer {
             text-align: center;
             padding: 2rem;
-            color: var(--light-gray);
+            color: var(--light-brown);
             font-size: 0.9rem;
+            border-top: 1px solid var(--light-gray);
+            margin-top: 4rem;
         }
     </style>
 </head>
 <body>
-
-    <div id="particles-js"></div>
 
     <header>
         <h1>Datos y Estadísticas Clave</h1>
@@ -225,7 +188,6 @@
                     <p>Se han detectado altos niveles de coliformes fecales y metales pesados en puntos específicos del río.</p>
                 </div>
             </div>
-            <p style="margin-top: 2rem;">La falta de infraestructura de saneamiento adecuada es un factor principal en la degradación de los ecosistemas acuáticos de la ciudad. </p>
         </section>
 
         <section id="aire" class="section">
@@ -243,7 +205,6 @@
                     <p>Las mediciones de partículas finas (PM2.5) en áreas de alto tráfico a menudo superan los límites recomendados por la OMS.</p>
                 </div>
             </div>
-            <p style="margin-top: 2rem;">La congestión vehicular y la quema de desechos contribuyen significativamente a la mala calidad del aire en la ciudad.  </p>
         </section>
 
         <section id="residuos" class="section">
@@ -261,67 +222,16 @@
                     <p>Miles de toneladas de plásticos y otros desechos terminan anualmente en el río Guayas y el Estero Salado.</p>
                 </div>
             </div>
-            <p style="margin-top: 2rem;">Fomentar la cultura de la separación de residuos y el reciclaje es fundamental para mitigar este problema.</p>
         </section>
-
-        <section class="section">
-            <a href="index.html" class="btn-link">Volver a la página principal</a>
-        </section>
+        
+        <a href="index.html" class="btn-link">Volver a la página principal</a>
     </main>
 
     <footer>
         <p>&copy; 2025 Información sobre la Contaminación en Guayaquil. Todos los derechos reservados.</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        // Inicializa particles.js
-        particlesJS('particles-js', {
-            "particles": {
-                "number": {
-                    "value": 80,
-                    "density": { "enable": true, "value_area": 800 }
-                },
-                "color": { "value": "#ffffff" },
-                "shape": { "type": "circle" },
-                "opacity": {
-                    "value": 0.5,
-                    "random": false,
-                    "anim": { "enable": false }
-                },
-                "size": {
-                    "value": 3,
-                    "random": true,
-                    "anim": { "enable": false }
-                },
-                "line_linked": {
-                    "enable": true,
-                    "distance": 150,
-                    "color": "#ffffff",
-                    "opacity": 0.4,
-                    "width": 1
-                },
-                "move": {
-                    "enable": true,
-                    "speed": 2,
-                    "direction": "none",
-                    "random": false,
-                    "straight": false,
-                    "out_mode": "out",
-                    "bounce": false
-                }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": {
-                    "onhover": { "enable": true, "mode": "grab" },
-                    "onclick": { "enable": true, "mode": "push" },
-                    "resize": true
-                }
-            }
-        });
-
-        // Animación de entrada de secciones
         const sections = document.querySelectorAll('.section');
 
         const observer = new IntersectionObserver(entries => {
@@ -331,13 +241,12 @@
                 }
             });
         }, {
-            threshold: 0.1
+            threshold: 0.2
         });
 
         sections.forEach(section => {
             observer.observe(section);
         });
     </script>
-
 </body>
 </html>
