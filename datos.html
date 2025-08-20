@@ -129,15 +129,14 @@
         .stat-card {
             background-color: var(--light-blue);
             padding: 2rem;
-            border-radius: 12px;
+            border-radius: 8px;
             text-align: center;
             box-shadow: var(--shadow-1);
-            transition: all 0.4s ease;
-            position: relative;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
 
         .stat-card:hover {
-            transform: translateY(-8px) rotateX(2deg);
+            transform: translateY(-5px);
             box-shadow: var(--shadow-2);
         }
 
@@ -153,6 +152,12 @@
             color: var(--darker-blue);
             margin: 0;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-card .description {
+            font-size: 1rem;
+            color: var(--dark-blue);
+            margin-top: 1rem;
         }
 
         .btn-link {
@@ -200,20 +205,20 @@
             <h2>Contaminación del Agua</h2>
             <p>La calidad del agua en el río Guayas y el Estero Salado es una preocupación ambiental crítica que afecta a millones de personas.</p>
             <div class="stats-container">
-                <div class="stat-card">
+                <div class="stat-card floating-element">
                     <h3>Volumen de Aguas Residuales</h3>
                     <p>~1,500 m³</p>
-                    <p>Por segundo se vierten al río Guayas, de los cuales solo un pequeño porcentaje es tratado.</p>
+                    <p class="description">Por segundo se vierten al río Guayas, de los cuales solo un pequeño porcentaje es tratado.</p>
                 </div>
-                <div class="stat-card">
+                <div class="stat-card floating-element">
                     <h3>Coliformes Fecales</h3>
                     <p>Muy altos</p>
-                    <p>Los niveles de coliformes fecales en el Estero Salado superan los límites de seguridad, lo que indica una alta contaminación por aguas residuales.</p>
+                    <p class="description">Los niveles de coliformes fecales en el Estero Salado superan los límites de seguridad, lo que indica una alta contaminación por aguas residuales.</p>
                 </div>
-                <div class="stat-card">
+                <div class="stat-card floating-element">
                     <h3>Basura Flotante</h3>
                     <p>Miles de toneladas</p>
-                    <p>Se calcula que miles de toneladas de plásticos y otros desechos flotan en el río y el Estero, afectando la biodiversidad y la estética de la ciudad.</p>
+                    <p class="description">Se calcula que miles de toneladas de plásticos y otros desechos flotan en el río y el Estero, afectando la biodiversidad y la estética de la ciudad.</p>
                 </div>
             </div>
         </section>
@@ -222,20 +227,20 @@
             <h2>Calidad del Aire</h2>
             <p>Aunque menos visible, la contaminación atmosférica afecta diariamente la salud de los guayaquileños y el medio ambiente.</p>
             <div class="stats-container">
-                <div class="stat-card">
+                <div class="stat-card floating-element">
                     <h3>Emisiones vehiculares</h3>
                     <p>~60%</p>
-                    <p>Se calcula que más del 60% de la contaminación del aire en la ciudad proviene del parque automotor, especialmente de vehículos antiguos y con poco mantenimiento.</p>
+                    <p class="description">Se calcula que más del 60% de la contaminación del aire en la ciudad proviene del parque automotor, especialmente de vehículos antiguos y con poco mantenimiento.</p>
                 </div>
-                <div class="stat-card">
+                <div class="stat-card floating-element">
                     <h3>Días de Calidad Aceptable</h3>
                     <p>Menos de 200</p>
-                    <p>El número de días al año en los que la calidad del aire es considerada "buena" o "aceptable" en ciertas zonas de la ciudad es limitado.</p>
+                    <p class="description">El número de días al año en los que la calidad del aire es considerada "buena" o "aceptable" en ciertas zonas de la ciudad es limitado.</p>
                 </div>
-                <div class="stat-card">
+                <div class="stat-card floating-element">
                     <h3>Partículas PM2.5</h3>
                     <p>Preocupante</p>
-                    <p>Las mediciones de partículas finas (PM2.5) en áreas de alto tráfico a menudo superan los límites recomendados por la Organización Mundial de la Salud (OMS).</p>
+                    <p class="description">Las mediciones de partículas finas (PM2.5) en áreas de alto tráfico a menudo superan los límites recomendados por la Organización Mundial de la Salud (OMS).</p>
                 </div>
             </div>
         </section>
@@ -244,20 +249,20 @@
             <h2>Contaminación por Ruido</h2>
             <p>Un problema silencioso pero perjudicial que afecta el bienestar de los habitantes y la vida silvestre.</p>
             <div class="stats-container">
-                <div class="stat-card">
+                <div class="stat-card floating-element">
                     <h3>Niveles de Ruido Promedio</h3>
                     <p>~75 dB</p>
-                    <p>El nivel de ruido en zonas de alto tráfico de Guayaquil a menudo supera los 70 dB, un umbral que la OMS considera perjudicial para la salud.</p>
+                    <p class="description">El nivel de ruido en zonas de alto tráfico de Guayaquil a menudo supera los 70 dB, un umbral que la OMS considera perjudicial para la salud.</p>
                 </div>
-                <div class="stat-card">
+                <div class="stat-card floating-element">
                     <h3>Fuentes Principales</h3>
                     <p>Tráfico, Obras</p>
-                    <p>El 80% de la contaminación acústica proviene del tráfico vehicular, seguido de cerca por la construcción y actividades comerciales.</p>
+                    <p class="description">El 80% de la contaminación acústica proviene del tráfico vehicular, seguido de cerca por la construcción y actividades comerciales.</p>
                 </div>
-                <div class="stat-card">
+                <div class="stat-card floating-element">
                     <h3>Impacto en la Salud</h3>
                     <p>Estrés, Insomnio</p>
-                    <p>La exposición prolongada a altos niveles de ruido puede causar estrés crónico, insomnio y problemas cardiovasculares en la población.</p>
+                    <p class="description">La exposición prolongada a altos niveles de ruido puede causar estrés crónico, insomnio y problemas cardiovasculares en la población.</p>
                 </div>
             </div>
         </section>
@@ -266,15 +271,15 @@
             <h2>Gestión de Residuos</h2>
             <p>El manejo inadecuado de los residuos sólidos es una de las causas más notorias de contaminación en las calles y espacios públicos.</p>
             <div class="stats-container">
-                <div class="stat-card">
+                <div class="stat-card floating-element">
                     <h3>Residuos per cápita</h3>
                     <p>~1 kg / día</p>
-                    <p>Cada habitante de Guayaquil genera un promedio de 1 kg de basura al día, lo que representa un gran desafío para su gestión.</p>
+                    <p class="description">Cada habitante de Guayaquil genera un promedio de 1 kg de basura al día, lo que representa un gran desafío para su gestión.</p>
                 </div>
-                <div class="stat-card">
+                <div class="stat-card floating-element">
                     <h3>Reciclaje</h3>
                     <p>~4%</p>
-                    <p>Se estima que solo un 4% de los residuos generados se recicla formalmente, dejando una gran oportunidad para mejorar los programas de recolección selectiva.</p>
+                    <p class="description">Se estima que solo un 4% de los residuos generados se recicla formalmente, dejando una gran oportunidad para mejorar los programas de recolección selectiva.</p>
                 </div>
             </div>
         </section>
