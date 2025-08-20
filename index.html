@@ -3,17 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contaminación en Guayaquil - Blanco y Celeste</title>
+    <title>Contaminación en Guayaquil - Granate y Melocotón</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 
         :root {
-            --white: #FFFFFF;
-            --light-blue: #ADD8E6; /* Celeste claro */
-            --medium-blue: #87CEEB; /* Celeste medio */
-            --dark-blue: #4682B4; /* Azul acero */
-            --darker-blue: #1E90FF; /* Azul brillante */
-            --navy-blue: #000080; /* Azul marino */
+            --granate: #800000;
+            --melocoton: #FFE5B4;
+            --light-melocoton: #FFF0CC;
+            --dark-granate: #500000;
             --shadow-1: 0 4px 8px rgba(0, 0, 0, 0.2);
             --shadow-2: 0 8px 16px rgba(0, 0, 0, 0.3);
             --shadow-3: 0 12px 24px rgba(0, 0, 0, 0.4);
@@ -23,8 +21,8 @@
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--navy-blue); /* Cambiado a azul marino */
-            color: var(--white); /* Cambiado a blanco para mejor lectura */
+            background-color: var(--granate);
+            color: var(--melocoton);
             line-height: 1.8;
             overflow-x: hidden;
         }
@@ -34,7 +32,7 @@
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
             box-shadow: var(--shadow-1);
             border-radius: 8px;
-            background-color: var(--white);
+            background-color: var(--melocoton);
         }
 
         .floating-element:hover {
@@ -46,22 +44,22 @@
         header {
             text-align: center;
             padding: 4rem 1rem 2rem;
-            background-color: var(--dark-blue); /* Color ajustado para el nuevo tema oscuro */
+            background-color: var(--dark-granate);
             margin-bottom: 2rem;
-            border-bottom: 2px solid var(--medium-blue);
+            border-bottom: 2px solid var(--melocoton);
         }
 
         header h1 {
             font-size: clamp(2.5rem, 5vw, 3.5rem);
             font-weight: 700;
             margin-bottom: 0.5rem;
-            color: var(--white); /* Cambiado a blanco */
+            color: var(--melocoton);
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
         }
 
         header p {
             font-size: clamp(1rem, 1.5vw, 1.2rem);
-            color: var(--white); /* Cambiado a blanco */
+            color: var(--melocoton);
             font-weight: 300;
         }
 
@@ -71,19 +69,19 @@
         }
 
         nav a {
-            color: var(--white); /* Cambiado a blanco */
+            color: var(--melocoton);
             text-decoration: none;
             font-weight: 500;
             padding: 0.7rem 1.5rem;
             margin: 0 0.8rem;
             border-radius: 20px;
             transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid var(--medium-blue);
+            border: 1px solid var(--light-melocoton);
         }
 
         nav a:hover {
-            background-color: var(--medium-blue);
-            color: var(--white);
+            background-color: var(--melocoton);
+            color: var(--granate);
             box-shadow: var(--shadow-1);
         }
 
@@ -95,16 +93,16 @@
         }
 
         .section {
-            background-color: var(--white);
+            background-color: var(--melocoton);
             padding: 2.5rem;
             margin-bottom: 2.5rem;
             border-radius: 8px;
             box-shadow: var(--shadow-1);
-            border: 1px solid var(--light-blue);
+            border: 1px solid var(--light-melocoton);
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-            color: var(--dark-blue); /* Asegurar que el texto dentro sea oscuro */
+            color: var(--granate);
         }
 
         .section.fade-in {
@@ -115,9 +113,9 @@
         .section h2 {
             font-size: clamp(2rem, 3.5vw, 2.8rem);
             font-weight: 600;
-            color: var(--darker-blue);
+            color: var(--dark-granate);
             margin-bottom: 1.2rem;
-            border-bottom: 2px solid var(--medium-blue);
+            border-bottom: 2px solid var(--granate);
             padding-bottom: 0.5rem;
         }
 
@@ -129,12 +127,13 @@
         }
 
         .card-item {
-            background-color: var(--white);
+            background-color: var(--melocoton);
             border-radius: 8px;
             box-shadow: var(--shadow-1);
             overflow: hidden;
-            border: 1px solid var(--light-blue);
+            border: 1px solid var(--light-melocoton);
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            color: var(--granate);
         }
 
         .card-item:hover {
@@ -144,26 +143,25 @@
 
         .card-item img {
             width: 100%;
-            height: auto; /* Ajuste para mantener la proporción */
+            height: auto;
             display: block;
         }
 
         .card-item .text-content {
             padding: 1.5rem;
-            color: var(--dark-blue);
         }
 
         .card-item h3 {
             font-size: 1.3rem;
-            color: var(--medium-blue);
+            color: var(--dark-granate);
             margin-bottom: 0.5rem;
         }
 
         .btn-link {
             display: inline-block;
             padding: 0.8rem 1.8rem;
-            background-color: var(--medium-blue);
-            color: var(--white);
+            background-color: var(--dark-granate);
+            color: var(--melocoton);
             text-decoration: none;
             border-radius: 20px;
             font-weight: 500;
@@ -173,7 +171,7 @@
         }
 
         .btn-link:hover {
-            background-color: var(--darker-blue);
+            background-color: var(--granate);
             box-shadow: var(--shadow-2);
             transform: translateY(-2px);
         }
@@ -202,9 +200,9 @@
         footer {
             text-align: center;
             padding: 2rem;
-            color: var(--white); /* Cambiado a blanco */
+            color: var(--melocoton);
             font-size: 0.9rem;
-            border-top: 1px solid var(--light-blue);
+            border-top: 1px solid var(--light-melocoton);
             margin-top: 3rem;
         }
     </style>
@@ -213,7 +211,7 @@
 
     <header>
         <h1>Contaminación en Guayaquil</h1>
-        <p>Un análisis detallado en tonos de blanco y celeste</p>
+        <p>Un análisis detallado en tonos de granate y melocotón</p>
     </header>
 
     <nav>
