@@ -3,105 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contaminación en Guayaquil - Estilo 3D</title>
+    <title>Contaminación en Guayaquil - Blanco y Celeste</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 
         :root {
-            --dark-bg: #121212;
-            --main-blue: #00A6FB;
-            --accent-purple: #B5179E;
-            --light-text: #F8F8F8;
-            --card-bg: #1A1A1A;
-            --shadow-1: 0 4px 6px rgba(0, 0, 0, 0.4);
-            --shadow-2: 0 10px 20px rgba(0, 0, 0, 0.6);
-            --shadow-3: 0 15px 30px rgba(0, 0, 0, 0.8);
+            --white: #FFFFFF;
+            --light-blue: #ADD8E6; /* Celeste claro */
+            --medium-blue: #87CEEB; /* Celeste medio */
+            --dark-blue: #4682B4; /* Azul acero */
+            --darker-blue: #1E90FF; /* Azul brillante */
+            --shadow-1: 0 4px 8px rgba(0, 0, 0, 0.2);
+            --shadow-2: 0 8px 16px rgba(0, 0, 0, 0.3);
+            --shadow-3: 0 12px 24px rgba(0, 0, 0, 0.4);
         }
 
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--dark-bg);
-            color: var(--light-text);
+            background-color: var(--white);
+            color: var(--dark-blue);
             line-height: 1.8;
             overflow-x: hidden;
-            background-image: radial-gradient(circle, var(--card-bg) 1px, transparent 1px);
-            background-size: 20px 20px;
         }
 
-        /* Efecto de capas flotantes */
+        /* Efecto de capas sutil */
         .floating-element {
-            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
             box-shadow: var(--shadow-1);
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            background-color: var(--white);
         }
 
         .floating-element:hover {
-            transform: translateY(-8px) scale(1.02) rotateX(2deg);
+            transform: translateY(-5px);
             box-shadow: var(--shadow-2);
         }
 
         /* Header y Navegación */
         header {
             text-align: center;
-            padding: 5rem 1rem 3rem;
+            padding: 4rem 1rem 2rem;
+            background-color: var(--light-blue);
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--medium-blue);
         }
 
         header h1 {
-            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
             font-weight: 700;
             margin-bottom: 0.5rem;
-            color: var(--main-blue);
-            text-shadow: 0 0 10px rgba(0, 166, 251, 0.5);
-            animation: fadeIn 1.5s ease;
+            color: var(--darker-blue);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
         }
 
         header p {
-            font-size: clamp(1rem, 2vw, 1.2rem);
-            color: var(--light-text);
-            animation: fadeIn 2s ease;
+            font-size: clamp(1rem, 1.5vw, 1.2rem);
+            color: var(--dark-blue);
+            font-weight: 300;
         }
 
         nav {
             text-align: center;
             margin-bottom: 3rem;
-            display: inline-block;
-            background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(5px);
-            border-radius: 50px;
-            padding: 0.5rem 1rem;
-            box-shadow: var(--shadow-2);
-        }
-        
-        nav a {
-            color: var(--light-text);
-            text-decoration: none;
-            font-weight: 400;
-            padding: 0.8rem 1.5rem;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            position: relative;
-            z-index: 1;
-        }
-        
-        nav a::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 50px;
-            background: var(--accent-purple);
-            transform: scale(0);
-            transition: transform 0.3s ease;
-            z-index: -1;
         }
 
-        nav a:hover::before {
-            transform: scale(1);
+        nav a {
+            color: var(--dark-blue);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.7rem 1.5rem;
+            margin: 0 0.8rem;
+            border-radius: 20px;
+            transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--medium-blue);
+        }
+
+        nav a:hover {
+            background-color: var(--medium-blue);
+            color: var(--white);
+            box-shadow: var(--shadow-1);
         }
 
         /* Contenido Principal */
@@ -112,15 +94,15 @@
         }
 
         .section {
-            background-color: var(--card-bg);
-            padding: 3rem;
-            margin-bottom: 3rem;
+            background-color: var(--white);
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow-1);
+            border: 1px solid var(--light-blue);
             opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-            box-shadow: var(--shadow-2);
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
         }
 
         .section.fade-in {
@@ -129,106 +111,106 @@
         }
 
         .section h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
             font-weight: 600;
-            color: var(--main-blue);
-            text-shadow: 0 0 5px rgba(0, 166, 251, 0.5);
-            margin-bottom: 1.5rem;
-            border-bottom: 2px solid var(--accent-purple);
+            color: var(--darker-blue);
+            margin-bottom: 1.2rem;
+            border-bottom: 2px solid var(--medium-blue);
             padding-bottom: 0.5rem;
         }
 
         .problem-card {
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-bottom: 2rem;
         }
 
-        .problem-card img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 12px;
+        .card-item {
+            background-color: var(--white);
+            border-radius: 8px;
             box-shadow: var(--shadow-1);
-            transition: all 0.4s ease;
+            overflow: hidden;
+            border: 1px solid var(--light-blue);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
 
-        .problem-card img:hover {
-            transform: scale(1.02) rotateZ(1deg);
+        .card-item:hover {
+            transform: translateY(-5px);
             box-shadow: var(--shadow-2);
         }
 
-        .problem-card h3 {
-            font-size: 1.5rem;
-            color: var(--accent-purple);
+        .card-item img {
+            width: 100%;
+            height: auto; /* Ajuste para mantener la proporción */
+            display: block;
+        }
+
+        .card-item .text-content {
+            padding: 1.5rem;
+        }
+
+        .card-item h3 {
+            font-size: 1.3rem;
+            color: var(--medium-blue);
             margin-bottom: 0.5rem;
-            text-shadow: 0 0 5px rgba(181, 23, 158, 0.5);
         }
 
         .btn-link {
             display: inline-block;
-            padding: 1rem 2.5rem;
-            background: var(--main-blue);
-            color: var(--light-text);
+            padding: 0.8rem 1.8rem;
+            background-color: var(--medium-blue);
+            color: var(--white);
             text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-            box-shadow: 0 0 10px var(--main-blue);
-            animation: pulse-glow 2s infinite;
+            border-radius: 20px;
+            font-weight: 500;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+            box-shadow: var(--shadow-1);
+            margin-top: 1rem;
         }
 
         .btn-link:hover {
-            background: var(--accent-purple);
-            box-shadow: 0 0 15px var(--accent-purple);
-            transform: translateY(-5px);
-            animation: none;
-        }
-        
-        @keyframes pulse-glow {
-            0% { box-shadow: 0 0 10px var(--main-blue); }
-            50% { box-shadow: 0 0 20px var(--main-blue); }
-            100% { box-shadow: 0 0 10px var(--main-blue); }
+            background-color: var(--darker-blue);
+            box-shadow: var(--shadow-2);
+            transform: translateY(-2px);
         }
 
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
         }
-        
+
         .gallery img {
             width: 100%;
-            height: 200px;
+            height: 150px;
             object-fit: cover;
-            border-radius: 12px;
+            border-radius: 4px;
             box-shadow: var(--shadow-1);
-            transition: all 0.4s ease;
+            transition: transform 0.3s ease-in-out;
         }
 
         .gallery img:hover {
-            transform: scale(1.05) translateY(-5px);
+            transform: scale(1.05);
             box-shadow: var(--shadow-2);
         }
 
         footer {
             text-align: center;
             padding: 2rem;
-            color: rgba(255, 255, 255, 0.5);
+            color: var(--medium-blue);
             font-size: 0.9rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            margin-top: 4rem;
+            border-top: 1px solid var(--light-blue);
+            margin-top: 3rem;
         }
-
     </style>
 </head>
 <body>
 
     <header>
         <h1>Contaminación en Guayaquil</h1>
-        <p>Una perspectiva vibrante y profunda de los desafíos ambientales.</p>
+        <p>Un análisis detallado en tonos de blanco y celeste</p>
     </header>
 
     <nav>
@@ -236,80 +218,97 @@
         <a href="#tipos-contaminacion">Tipos</a>
         <a href="#consecuencias">Consecuencias</a>
         <a href="#soluciones">Soluciones</a>
+        <a href="#proyecto-importante">Importancia Proyecto</a>
         <a href="datos.html">Estadísticas</a>
     </nav>
 
     <main>
         <section id="introduccion" class="section floating-element">
             <h2>Introducción</h2>
-            <p>Guayaquil, la vibrante y poblada ciudad de Ecuador, enfrenta serios desafíos ambientales debido a su rápido crecimiento demográfico e industrial. La contaminación en sus diversas formas afecta la calidad de vida de sus habitantes y la salud de sus ecosistemas. Este sitio web busca informar sobre las principales causas y efectos de este problema, así como proponer posibles soluciones para un futuro más sostenible.</p>
-            <p>Se estima que solo el 20% de las aguas residuales de la ciudad son tratadas antes de ser vertidas al río Guayas, lo que lo convierte en uno de los principales focos de contaminación hídrica en la región. La ubicación geográfica de la ciudad, a orillas del río Guayas y el Golfo de Guayaquil, la hace particularmente vulnerable a la contaminación del agua, pero los problemas también se extienden al aire y al suelo, impactando a toda la región.</p>
+            <p>Guayaquil, la metrópoli ecuatoriana, enfrenta desafíos ambientales significativos que requieren una atención urgente y coordinada. La contaminación, en sus diversas manifestaciones, impacta la salud pública, la biodiversidad y la calidad de vida de sus habitantes. Este proyecto profundiza en las causas, efectos y posibles soluciones a la problemática de la contaminación en la ciudad, con el objetivo de fomentar una mayor conciencia y acción ciudadana.</p>
+            <p>La ubicación estratégica de Guayaquil, como puerto principal y centro industrial, la expone a diversas fuentes de contaminación. El crecimiento urbano no planificado y la falta de infraestructura adecuada para el tratamiento de residuos y aguas residuales han exacerbado estos problemas. Es crucial entender la magnitud de la situación para poder implementar estrategias efectivas de mitigación y prevención.</p>
         </section>
 
         <section id="tipos-contaminacion" class="section floating-element">
             <h2>Principales Tipos de Contaminación</h2>
             <div class="problem-card">
-                <img src="img/agua.jpg" alt="Contaminación del agua en Guayaquil" class="floating-element">
-                <div class="text-content">
-                    <h3>1. Contaminación del Agua</h3>
-                    <p>El río Guayas, el Estero Salado y el Golfo de Guayaquil son los principales receptores de contaminantes. Los desechos industriales no tratados, las aguas residuales domésticas y la basura arrojada por la población son las causas principales. Esto no solo afecta a la flora y fauna acuática, sino que también representa un riesgo para la salud pública.</p>
+                <div class="card-item floating-element">
+                    <img src="img/agua_guayaquil.jpg" alt="Contaminación del agua en Guayaquil">
+                    <div class="text-content">
+                        <h3>Contaminación Hídrica</h3>
+                        <p>El río Guayas y el Estero Salado son vitales para la ciudad, pero sufren una grave contaminación por descargas de aguas residuales domésticas e industriales sin tratamiento adecuado. Esto afecta la vida acuática, la disponibilidad de agua limpia y la salud de las comunidades ribereñas.</p>
+                    </div>
                 </div>
-            </div>
-
-            <div class="problem-card">
-                <img src="https://deproinsa.com.ec/wp-content/uploads/2024/08/Tema-Contaminacion-Ambiental-Website-SGK-PLANET-Sandor-Alejandro-Gerendas-Kiss-1024x469.jpg" alt="Contaminación del aire en Guayaquil" class="floating-element">
-                <div class="text-content">
-                    <h3>2. Contaminación del Aire</h3>
-                    <p>Las emisiones de gases de los vehículos, las industrias y la quema de basura son los mayores contribuyentes a la contaminación atmosférica. Partículas finas (PM2.5) y óxidos de nitrógeno (NOx) pueden causar problemas respiratorios y otras enfermedades en los habitantes de la ciudad.</p>
+                <div class="card-item floating-element">
+                    <img src="https://deproinsa.com.ec/wp-content/uploads/2024/08/Tema-Contaminacion-Ambiental-Website-SGK-PLANET-Sandor-Alejandro-Gerendas-Kiss-1024x469.jpg" alt="Contaminación del aire en Guayaquil">
+                    <div class="text-content">
+                        <h3>Contaminación Atmosférica</h3>
+                        <p>Las emisiones de vehículos, industrias y la quema de desechos sólidos deterioran la calidad del aire. Los altos niveles de partículas finas y gases tóxicos representan un riesgo significativo para la salud respiratoria de la población, especialmente niños y adultos mayores.</p>
+                    </div>
                 </div>
-            </div>
-
-            <div class="problem-card">
-                <img src="https://imagenes.primicias.ec/files/og_thumbnail/uploads/2024/07/22/669ecbf5af19a.jpeg" alt="Manejo de residuos sólidos en Guayaquil" class="floating-element">
-                <div class="text-content">
-                    <h3>3. Manejo de Residuos Sólidos</h3>
-                    <p>A pesar de los esfuerzos, el manejo de la basura sigue siendo un problema. La acumulación de residuos en las calles y vertederos, sumada a la falta de programas de reciclaje efectivos, contribuye a la contaminación del suelo y atrae plagas, afectando la higiene y el paisaje urbano.</p>
+                <div class="card-item floating-element">
+                    <img src="https://imagenes.primicias.ec/files/og_thumbnail/uploads/2024/07/22/669ecbf5af19a.jpeg" alt="Manejo de residuos sólidos en Guayaquil">
+                    <div class="text-content">
+                        <h3>Contaminación del Suelo y Residuos</h3>
+                        <p>La gestión inadecuada de los residuos sólidos, incluyendo la falta de reciclaje y los vertederos no controlados, contamina el suelo y el agua subterránea. La acumulación de basura también genera problemas de salud pública y afecta el paisaje urbano.</p>
+                    </div>
                 </div>
-            </div>
-
-            <div class="problem-card">
-                <img src="https://static.wixstatic.com/media/0111f1_6b4a8e259e8749a2a91217e99709d435~mv2.jpg/v1/fit/w_500,h_500,q_90/0111f1_6b4a8e259e8749a2a91217e99709d435~mv2.jpg" alt="Contaminación visual en Guayaquil" class="floating-element">
-                <div class="text-content">
-                    <h3>4. Contaminación Visual</h3>
-                    <p>El exceso de carteles publicitarios, grafitis no regulados y una infraestructura urbana desordenada generan un impacto negativo en el paisaje, afectando el bienestar psicológico y el sentido de identidad de la comunidad. Las fachadas con cables y anuncios indiscriminados restan atractivo a los espacios públicos.</p>
+                <div class="card-item floating-element">
+                    <img src="https://static.wixstatic.com/media/0111f1_6b4a8e259e8749a2a91217e99709d435~mv2.jpg/v1/fit/w_500,h_500,q_90/0111f1_6b4a8e259e8749a2a91217e99709d435~mv2.jpg" alt="Contaminación visual en Guayaquil">
+                    <div class="text-content">
+                        <h3>Contaminación Visual y Auditiva</h3>
+                        <p>El exceso de publicidad, el desorden urbano y los altos niveles de ruido contribuyen a la contaminación visual y auditiva, afectando el bienestar psicológico y la calidad de vida de los ciudadanos.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section id="consecuencias" class="section floating-element">
             <h2>Consecuencias y Efectos</h2>
-            <p>La contaminación tiene un impacto directo en múltiples aspectos de la vida en Guayaquil:</p>
+            <p>La contaminación en Guayaquil tiene repercusiones profundas y diversas:</p>
             <ul>
-                <li><strong>Salud Pública:</strong> Aumento de enfermedades respiratorias, gastrointestinales y de la piel. Según estudios locales, los casos de asma y bronquitis se han incrementado en áreas cercanas a fuentes de alta contaminación del aire.</li>
-                <li><strong>Ecosistemas:</strong> Pérdida de biodiversidad en los ríos y estuarios, afectando a especies como los manglares y los peces. La degradación del Estero Salado es un claro ejemplo de la pérdida de hábitats naturales y la desaparición de especies.</li>
-                <li><strong>Economía:</strong> Impacto en la pesca y el turismo, así como costos de salud pública. La inversión en infraestructura de tratamiento de agua y aire es costosa, y el turismo ecológico se ve afectado por la mala calidad ambiental.</li>
-                <li><strong>Calidad de Vida:</strong> Deterioro del paisaje urbano y reducción del bienestar general. Los malos olores y la presencia de basura en las calles disminuyen la calidad de vida de los ciudadanos.</li>
+                <li><strong>Salud Pública:</strong> Incremento de enfermedades respiratorias (asma, bronquitis), infecciosas (gastrointestinales, de la piel) y cardiovasculares. La exposición crónica a contaminantes puede tener efectos a largo plazo en la salud.</li>
+                <li><strong>Impacto Ambiental:</strong> Degradación de los ecosistemas acuáticos y terrestres, pérdida de biodiversidad, alteración de los ciclos naturales y aumento de la vulnerabilidad a eventos climáticos extremos.</li>
+                <li><strong>Economía:</strong> Pérdidas en el sector pesquero y turístico debido a la degradación ambiental. Aumento de los costos de salud pública y la necesidad de inversión en infraestructura de tratamiento y remediación.</li>
+                <li><strong>Calidad de Vida:</strong> Disminución del bienestar general de la población, estrés, problemas de sueño y una menor valoración de los espacios públicos y naturales de la ciudad.</li>
             </ul>
         </section>
 
         <section id="soluciones" class="section floating-element">
             <h2>Posibles Soluciones y Acciones</h2>
-            <p>Abordar la contaminación en Guayaquil requiere un esfuerzo conjunto del gobierno, la industria y la ciudadanía. Algunas acciones clave incluyen:</p>
+            <p>Abordar la contaminación en Guayaquil requiere un enfoque integral y la participación activa de todos los sectores de la sociedad:</p>
             <ul>
-                <li><strong>Inversión en Infraestructura:</strong> Modernizar plantas de tratamiento de aguas residuales.</li>
-                <li><strong>Fomento del Reciclaje:</strong> Implementar programas de separación de residuos en la fuente y puntos de acopio.</li>
-                <li><strong>Transporte Sostenible:</strong> Promover el uso de transporte público, bicicletas y vehículos eléctricos.</li>
-                <li><strong>Regulación Ambiental:</strong> Fortalecer las leyes y los controles para las empresas contaminantes.</li>
-                <li><strong>Educación Ambiental:</strong> Concienciar a la población sobre la importancia de sus hábitos diarios.</li>
+                <li>Invertir en la mejora y expansión de la infraestructura de tratamiento de aguas residuales y potabilización.</li>
+                <li>Implementar programas integrales de gestión de residuos sólidos que fomenten la reducción, reutilización y reciclaje.</li>
+                <li>Promover el uso de transporte público eficiente y sostenible, así como alternativas de movilidad activa (bicicletas, peatones).</li>
+                <li>Fortalecer la regulación y el control ambiental para las industrias y otras fuentes de contaminación.</li>
+                <li>Desarrollar campañas de educación y concienciación ambiental dirigidas a la ciudadanía.</li>
+                <li>Fomentar la investigación y la innovación en tecnologías limpias y soluciones basadas en la naturaleza.</li>
+                <li>Promover la participación ciudadana en la vigilancia y el reporte de problemas ambientales.</li>
             </ul>
-            <a href="datos.html" class="btn-link">Ver Datos y Estadísticas Clave</a>
-            <div style="text-align: center; margin-top: 2rem;">
-                <p>Cada pequeño gesto cuenta. Reduce tu consumo, reutiliza, recicla y participa en campañas de limpieza de tu comunidad. Juntos podemos hacer de Guayaquil una ciudad más limpia y saludable.</p>
-                <div class="gallery">
-                    <img src="https://guayaquil.gob.ec/wp-content/uploads/2025/04/EN-GUA1.jpg" alt="Limpieza comunitaria" class="floating-element">
-                    <img src="https://www.elcomercio.com/wp-content/uploads/2022/03/siembraton-4-1.jpg" alt="Plantación de árboles" class="floating-element">
-                    <img src="https://www.pica.com.ec/static/uploads/news/11_32.jpg" alt="Reciclaje" class="floating-element">
-                </div>
+        </section>
+
+        <section id="proyecto-importante" class="section floating-element">
+            <h2>Objetivos del Proyecto</h2>
+            <p>Reducir progresivamente los niveles de contaminación en la ciudad de Guayaquil. Esto se logrará a través de la aplicación de políticas públicas efectivas, el fortalecimiento de la gestión ambiental y urbana, la promoción del uso responsable de los recursos naturales y la implementación de tecnologías limpias. Nuestro objetivo es no solo mejorar la calidad del aire, del agua y de los espacios públicos, sino también garantizar la salud y el bienestar de la población, preservar la biodiversidad local y contribuir al desarrollo sostenible de la ciudad a corto, mediano y largo plazo.</p>
+            
+            <h3>Objetivos Específicos</h3>
+            <ul>
+                <li><strong>Monitoreo y Control Ambiental:</strong> Establecer un sistema de monitoreo permanente para el aire, el agua y el suelo en las zonas más afectadas de Guayaquil. El propósito es identificar con precisión los principales focos de contaminación y aplicar medidas correctivas de forma oportuna y eficiente.</li>
+                <li><strong>Educación y Conciencia Ciudadana:</strong> Diseñar y ejecutar programas educativos y campañas de sensibilización dirigidas a toda la población. El fin es fomentar hábitos sostenibles, promover la correcta disposición de residuos y cultivar un sentido de responsabilidad colectiva en la protección de nuestro medio ambiente.</li>
+                <li><strong>Gestión Ambiental Efectiva:</strong> Implementar políticas y acciones integrales para la reducción de la contaminación. Esto incluye la mejora en la gestión de residuos sólidos y líquidos, una regulación más estricta de las actividades contaminantes y la promoción de tecnologías limpias y sostenibles en todos los sectores de la ciudad.</li>
+            </ul>
+        </section>
+
+        <section style="text-align: center; margin-top: 3rem;">
+            <a href="datos.html" class="btn-link">Ver Datos y Estadísticas Detalladas</a>
+            <div class="gallery">
+                <img src="https://guayaquil.gob.ec/wp-content/uploads/2025/04/EN-GUA1.jpg" alt="Limpieza comunitaria">
+                <img src="https://www.elcomercio.com/wp-content/uploads/2022/03/siembraton-4-1.jpg" alt="Plantación de árboles">
+                <img src="https://www.pica.com.ec/static/uploads/news/11_32.jpg" alt="Reciclaje">
+                <img src="https://www.eltelegrafo.com/wp-content/uploads/2017/09/Basura-estero.jpg" alt="Basura en el estero">
+                <img src="https://www.primicias.ec/wp-content/uploads/2023/05/24/captura-de-pantalla-2023-05-24-a-las-8.40.48.png" alt="Contaminación del aire">
+                <img src="https://www.expreso.ec/wp-content/uploads/2023/11/02/basural-guayaquil-4-scaled.jpg" alt="Vertedero de basura">
             </div>
         </section>
     </main>
