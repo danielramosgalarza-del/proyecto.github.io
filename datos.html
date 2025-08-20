@@ -5,248 +5,212 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Datos y Estadísticas - Contaminación en Guayaquil</title>
     <style>
-        /* Copia y pega todo el código CSS del archivo index.html aquí */
-        /* --- Estilos Generales y Gradientes --- */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        :root {
+            --dark-blue: #0A1128;
+            --main-blue: #0077B6;
+            --accent-blue: #00B4D8;
+            --white: #F8F9FA;
+            --light-gray: #E9ECEF;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            color: #1e2a3c;
-            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-            background-size: 200% 200%;
-            min-height: 100vh;
-            animation: gradient-animation 15s ease infinite;
+            background-color: var(--dark-blue);
+            color: var(--white);
+            line-height: 1.8;
+            position: relative;
+            overflow-x: hidden;
         }
 
-        @keyframes gradient-animation {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        /* Particles.js Container */
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle, #0f2027, #203a43, #2c5364);
+            animation: backgroundShift 20s infinite alternate;
+        }
+        
+        @keyframes backgroundShift {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 100% 100%; }
         }
 
-        /* --- Glassmorphism Effect --- */
-        .glass-container {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        /* Layout */
+        header, main, footer {
+            position: relative;
+            z-index: 1;
         }
 
-        .glass-container:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.45);
-        }
-
-        /* --- Header y Navegación --- */
         header {
             text-align: center;
-            padding: 2rem 1rem;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            padding: 4rem 1rem 2rem;
         }
 
         header h1 {
-            font-size: 3rem;
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 600;
             margin: 0;
-            font-weight: 300;
-            animation: fadeIn 2s ease;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
         }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+        
+        header p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            font-weight: 300;
+            color: var(--light-gray);
         }
 
         nav {
             text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        nav a {
+            margin: 2rem 0;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            padding: 0.5rem 1rem;
             display: inline-block;
-            padding: 0.7rem 1.5rem;
-            margin: 0 0.5rem;
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            position: relative;
-            transition: all 0.3s ease;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            left: 50%;
-            bottom: 0;
-            width: 0;
-            height: 2px;
-            background-color: white;
-            transition: width 0.3s ease, left 0.3s ease;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-            left: 0;
-        }
-
-        /* --- Contenido Principal --- */
-        main {
-            padding: 2rem;
-            max-width: 1100px;
-            margin: auto;
-        }
-
-        .section {
-            padding: 2.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .section h2 {
-            color: white;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-            font-size: 2rem;
-            font-weight: 300;
-            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         }
         
-        .section p, .section ul {
-            color: #e0e0e0;
-        }
-
-        .problem-card {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            margin-bottom: 2rem;
-        }
-
-        .problem-card img {
-            width: 100%;
-            max-height: 250px;
-            object-fit: cover;
-            border-radius: 12px;
-            margin-bottom: 1rem;
-        }
-
-        .problem-card .text-content {
-            padding: 1.5rem;
-            flex: 1;
-        }
-
-        @media (min-width: 768px) {
-            .problem-card {
-                flex-wrap: nowrap;
-            }
-            .problem-card img {
-                width: 40%;
-                margin-right: 2rem;
-            }
-        }
-
-        /* --- Enlace Estilizado --- */
-        .btn-link {
-            display: inline-block;
-            margin: 2rem auto 1rem;
-            padding: 1rem 2rem;
-            background: linear-gradient(45deg, #1cb5e0, #000046);
-            color: white;
+        nav a {
+            color: var(--white);
             text-decoration: none;
-            border: none;
+            font-weight: 400;
+            padding: 0.8rem 1.5rem;
             border-radius: 50px;
-            cursor: pointer;
-            font-weight: bold;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s ease;
         }
-
-        .btn-link:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        /* --- Galería --- */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .gallery img {
-            width: 100%;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
-        }
-
-        .gallery img:hover {
+        
+        nav a:hover {
+            background-color: var(--main-blue);
             transform: scale(1.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
 
-        /* --- Footer --- */
-        footer {
-            text-align: center;
-            padding: 1.5rem;
-            color: #b0c4de;
-            font-size: 0.9rem;
-            margin-top: 2rem;
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: auto;
+            padding: 2rem;
+        }
+        
+        .section {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        .section.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .section h2 {
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-weight: 600;
+            color: var(--accent-blue);
+            border-bottom: 2px solid var(--accent-blue);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .section p {
+            color: var(--light-gray);
         }
 
         .stats-container {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
             margin-top: 2rem;
         }
 
         .stat-card {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(8px);
-            padding: 1.5rem;
-            margin: 1rem;
-            border-radius: 12px;
+            padding: 2rem;
+            border-radius: 15px;
             text-align: center;
-            flex: 1;
-            min-width: 250px;
-            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
         }
 
         .stat-card h3 {
-            color: white;
+            color: var(--accent-blue);
             font-size: 1.5rem;
             margin-bottom: 0.5rem;
         }
 
         .stat-card p {
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: bold;
-            color: #1cb5e0;
+            color: var(--main-blue);
             margin: 0;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn-link {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(45deg, #1cb5e0, #000046);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-align: center;
+            margin: 2rem auto;
+            display: block;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-link:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            filter: brightness(1.2);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--light-gray);
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
+
+    <div id="particles-js"></div>
 
     <header>
         <h1>Datos y Estadísticas Clave</h1>
         <p>Una mirada a los números detrás del problema de la contaminación en Guayaquil</p>
     </header>
 
-    <nav class="glass-container">
+    <nav>
         <a href="index.html">Volver a la Página Principal</a>
-        <a href="#agua">Agua</a>
-        <a href="#aire">Aire</a>
-        <a href="#residuos">Residuos</a>
     </nav>
 
     <main>
-        <section id="agua" class="section glass-container">
+        <section id="agua" class="section">
             <h2>Contaminación del Agua</h2>
             <p>La calidad del agua en el río Guayas y el Estero Salado es una preocupación ambiental crítica.</p>
             <div class="stats-container">
@@ -264,7 +228,7 @@
             <p style="margin-top: 2rem;">La falta de infraestructura de saneamiento adecuada es un factor principal en la degradación de los ecosistemas acuáticos de la ciudad. </p>
         </section>
 
-        <section id="aire" class="section glass-container">
+        <section id="aire" class="section">
             <h2>Calidad del Aire</h2>
             <p>Aunque menos visible, la contaminación atmosférica afecta diariamente la salud de los guayaquileños.</p>
             <div class="stats-container">
@@ -282,7 +246,7 @@
             <p style="margin-top: 2rem;">La congestión vehicular y la quema de desechos contribuyen significativamente a la mala calidad del aire en la ciudad.  </p>
         </section>
 
-        <section id="residuos" class="section glass-container">
+        <section id="residuos" class="section">
             <h2>Gestión de Residuos</h2>
             <p>El manejo inadecuado de los residuos sólidos es una de las causas más notorias de contaminación en las calles y espacios públicos.</p>
             <div class="stats-container">
@@ -308,6 +272,72 @@
     <footer>
         <p>&copy; 2025 Información sobre la Contaminación en Guayaquil. Todos los derechos reservados.</p>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Inicializa particles.js
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": { "enable": true, "value_area": 800 }
+                },
+                "color": { "value": "#ffffff" },
+                "shape": { "type": "circle" },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": { "enable": false }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": { "enable": false }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": { "enable": true, "mode": "grab" },
+                    "onclick": { "enable": true, "mode": "push" },
+                    "resize": true
+                }
+            }
+        });
+
+        // Animación de entrada de secciones
+        const sections = document.querySelectorAll('.section');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
 
 </body>
 </html>

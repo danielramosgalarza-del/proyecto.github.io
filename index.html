@@ -3,208 +3,233 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contaminación en Guayaquil - Glassmorphism</title>
+    <title>Contaminación en Guayaquil - Proyecto Final</title>
     <style>
-        /* --- Estilos Generales y Gradientes --- */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        :root {
+            --dark-blue: #0A1128;
+            --main-blue: #0077B6;
+            --accent-blue: #00B4D8;
+            --white: #F8F9FA;
+            --light-gray: #E9ECEF;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            color: #1e2a3c;
-            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-            background-size: 200% 200%;
-            min-height: 100vh;
-            animation: gradient-animation 15s ease infinite;
+            background-color: var(--dark-blue);
+            color: var(--white);
+            line-height: 1.8;
+            position: relative;
+            overflow-x: hidden;
         }
 
-        @keyframes gradient-animation {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        /* Particles.js Container */
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle, #0f2027, #203a43, #2c5364);
+            animation: backgroundShift 20s infinite alternate;
+        }
+        
+        @keyframes backgroundShift {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 100% 100%; }
         }
 
-        /* --- Glassmorphism Effect --- */
-        .glass-container {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        /* Layout */
+        header, main, footer {
+            position: relative;
+            z-index: 1;
         }
 
-        .glass-container:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.45);
-        }
-
-        /* --- Header y Navegación --- */
         header {
             text-align: center;
-            padding: 2rem 1rem;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            padding: 4rem 1rem 2rem;
         }
 
         header h1 {
-            font-size: 3rem;
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 600;
             margin: 0;
-            font-weight: 300;
-            animation: fadeIn 2s ease;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
         }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+        
+        header p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            font-weight: 300;
+            color: var(--light-gray);
         }
 
         nav {
             text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        nav a {
+            margin: 2rem 0;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            padding: 0.5rem 1rem;
             display: inline-block;
-            padding: 0.7rem 1.5rem;
-            margin: 0 0.5rem;
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            position: relative;
-            transition: all 0.3s ease;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            left: 50%;
-            bottom: 0;
-            width: 0;
-            height: 2px;
-            background-color: white;
-            transition: width 0.3s ease, left 0.3s ease;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-            left: 0;
-        }
-
-        /* --- Contenido Principal --- */
-        main {
-            padding: 2rem;
-            max-width: 1100px;
-            margin: auto;
-        }
-
-        .section {
-            padding: 2.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .section h2 {
-            color: white;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-            font-size: 2rem;
-            font-weight: 300;
-            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         }
         
-        .section p, .section ul {
-            color: #e0e0e0;
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 400;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover {
+            background-color: var(--main-blue);
+            transform: scale(1.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
 
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: auto;
+            padding: 2rem;
+        }
+        
+        .section {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        .section.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .section h2 {
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-weight: 600;
+            color: var(--accent-blue);
+            border-bottom: 2px solid var(--accent-blue);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .section p {
+            color: var(--light-gray);
+        }
+        
         .problem-card {
             display: flex;
-            flex-wrap: wrap;
-            align-items: center;
+            flex-direction: column;
+            gap: 2rem;
             margin-bottom: 2rem;
         }
-
+        
         .problem-card img {
             width: 100%;
-            max-height: 250px;
+            height: 250px;
             object-fit: cover;
-            border-radius: 12px;
-            margin-bottom: 1rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
         }
 
+        .problem-card img:hover {
+            transform: scale(1.02);
+        }
+        
+        .problem-card h3 {
+            color: var(--accent-blue);
+            font-size: 1.5rem;
+        }
+        
         .problem-card .text-content {
-            padding: 1.5rem;
-            flex: 1;
+            padding: 1rem 0;
         }
 
         @media (min-width: 768px) {
             .problem-card {
-                flex-wrap: nowrap;
+                flex-direction: row;
+                align-items: center;
             }
             .problem-card img {
-                width: 40%;
+                width: 45%;
                 margin-right: 2rem;
             }
         }
-
-        /* --- Enlace Estilizado --- */
+        
         .btn-link {
             display: inline-block;
-            margin: 2rem auto 1rem;
-            padding: 1rem 2rem;
+            padding: 1rem 2.5rem;
             background: linear-gradient(45deg, #1cb5e0, #000046);
-            color: white;
+            color: var(--white);
             text-decoration: none;
-            border: none;
             border-radius: 50px;
-            cursor: pointer;
-            font-weight: bold;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            font-weight: 600;
+            text-align: center;
+            margin: 2rem auto;
+            display: block;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
         }
-
+        
         .btn-link:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            filter: brightness(1.2);
         }
 
-        /* --- Galería --- */
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
             margin-top: 2rem;
         }
 
         .gallery img {
             width: 100%;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .gallery img:hover {
             transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
         }
 
-        /* --- Footer --- */
         footer {
             text-align: center;
-            padding: 1.5rem;
-            color: #b0c4de;
+            padding: 2rem;
+            color: var(--light-gray);
             font-size: 0.9rem;
-            margin-top: 2rem;
         }
     </style>
 </head>
 <body>
+
+    <div id="particles-js"></div>
 
     <header>
         <h1>Contaminación en Guayaquil</h1>
         <p>Una mirada a los desafíos ambientales de la Perla del Pacífico</p>
     </header>
 
-    <nav class="glass-container">
+    <nav>
         <a href="#introduccion">Introducción</a>
         <a href="#tipos-contaminacion">Tipos</a>
         <a href="#consecuencias">Consecuencias</a>
@@ -213,16 +238,16 @@
     </nav>
 
     <main>
-        <section id="introduccion" class="section glass-container">
+        <section id="introduccion" class="section">
             <h2>Introducción</h2>
             <p>Guayaquil, la vibrante y poblada ciudad de Ecuador, enfrenta serios desafíos ambientales debido a su rápido crecimiento demográfico e industrial. La contaminación en sus diversas formas afecta la calidad de vida de sus habitantes y la salud de sus ecosistemas. Este sitio web busca informar sobre las principales causas y efectos de este problema, así como proponer posibles soluciones para un futuro más sostenible.</p>
-            <p>Se estima que solo el 20% de las aguas residuales de la ciudad son tratadas antes de ser vertidas al río Guayas, lo que lo convierte en uno de los principales focos de contaminación hídrica en la región.  La ubicación geográfica de la ciudad, a orillas del río Guayas y el Golfo de Guayaquil, la hace particularmente vulnerable a la contaminación del agua, pero los problemas también se extienden al aire y al suelo, impactando a toda la región.</p>
+            <p>Se estima que solo el 20% de las aguas residuales de la ciudad son tratadas antes de ser vertidas al río Guayas, lo que lo convierte en uno de los principales focos de contaminación hídrica en la región. La ubicación geográfica de la ciudad, a orillas del río Guayas y el Golfo de Guayaquil, la hace particularmente vulnerable a la contaminación del agua, pero los problemas también se extienden al aire y al suelo, impactando a toda la región.</p>
         </section>
 
-        <section id="tipos-contaminacion" class="section glass-container">
+        <section id="tipos-contaminacion" class="section">
             <h2>Principales Tipos de Contaminación</h2>
             <div class="problem-card">
-                <img src="img/agua.jpg" alt="Contaminación del agua en Guayaquil" class="glass-container">
+                <img src="img/agua.jpg" alt="Contaminación del agua en Guayaquil">
                 <div class="text-content">
                     <h3>1. Contaminación del Agua</h3>
                     <p>El río Guayas, el Estero Salado y el Golfo de Guayaquil son los principales receptores de contaminantes. Los desechos industriales no tratados, las aguas residuales domésticas y la basura arrojada por la población son las causas principales. Esto no solo afecta a la flora y fauna acuática, sino que también representa un riesgo para la salud pública.</p>
@@ -230,7 +255,7 @@
             </div>
 
             <div class="problem-card">
-                <img src="https://deproinsa.com.ec/wp-content/uploads/2024/08/Tema-Contaminacion-Ambiental-Website-SGK-PLANET-Sandor-Alejandro-Gerendas-Kiss-1024x469.jpg" alt="Contaminación del aire en Guayaquil" class="glass-container">
+                <img src="https://deproinsa.com.ec/wp-content/uploads/2024/08/Tema-Contaminacion-Ambiental-Website-SGK-PLANET-Sandor-Alejandro-Gerendas-Kiss-1024x469.jpg" alt="Contaminación del aire en Guayaquil">
                 <div class="text-content">
                     <h3>2. Contaminación del Aire</h3>
                     <p>Las emisiones de gases de los vehículos, las industrias y la quema de basura son los mayores contribuyentes a la contaminación atmosférica. Partículas finas (PM2.5) y óxidos de nitrógeno (NOx) pueden causar problemas respiratorios y otras enfermedades en los habitantes de la ciudad.</p>
@@ -238,7 +263,7 @@
             </div>
 
             <div class="problem-card">
-                <img src="https://imagenes.primicias.ec/files/og_thumbnail/uploads/2024/07/22/669ecbf5af19a.jpeg" alt="Manejo de residuos sólidos en Guayaquil" class="glass-container">
+                <img src="https://imagenes.primicias.ec/files/og_thumbnail/uploads/2024/07/22/669ecbf5af19a.jpeg" alt="Manejo de residuos sólidos en Guayaquil">
                 <div class="text-content">
                     <h3>3. Manejo de Residuos Sólidos</h3>
                     <p>A pesar de los esfuerzos, el manejo de la basura sigue siendo un problema. La acumulación de residuos en las calles y vertederos, sumada a la falta de programas de reciclaje efectivos, contribuye a la contaminación del suelo y atrae plagas, afectando la higiene y el paisaje urbano.</p>
@@ -246,7 +271,7 @@
             </div>
 
             <div class="problem-card">
-                <img src="https://static.wixstatic.com/media/0111f1_6b4a8e259e8749a2a91217e99709d435~mv2.jpg/v1/fit/w_500,h_500,q_90/0111f1_6b4a8e259e8749a2a91217e99709d435~mv2.jpg" alt="Contaminación visual en Guayaquil" class="glass-container">
+                <img src="https://static.wixstatic.com/media/0111f1_6b4a8e259e8749a2a91217e99709d435~mv2.jpg/v1/fit/w_500,h_500,q_90/0111f1_6b4a8e259e8749a2a91217e99709d435~mv2.jpg" alt="Contaminación visual en Guayaquil">
                 <div class="text-content">
                     <h3>4. Contaminación Visual</h3>
                     <p>El exceso de carteles publicitarios, grafitis no regulados y una infraestructura urbana desordenada generan un impacto negativo en el paisaje, afectando el bienestar psicológico y el sentido de identidad de la comunidad. Las fachadas con cables y anuncios indiscriminados restan atractivo a los espacios públicos.</p>
@@ -254,7 +279,7 @@
             </div>
         </section>
 
-        <section id="consecuencias" class="section glass-container">
+        <section id="consecuencias" class="section">
             <h2>Consecuencias y Efectos</h2>
             <p>La contaminación tiene un impacto directo en múltiples aspectos de la vida en Guayaquil:</p>
             <ul>
@@ -265,7 +290,7 @@
             </ul>
         </section>
 
-        <section id="soluciones" class="section glass-container">
+        <section id="soluciones" class="section">
             <h2>Posibles Soluciones y Acciones</h2>
             <p>Abordar la contaminación en Guayaquil requiere un esfuerzo conjunto del gobierno, la industria y la ciudadanía. Algunas acciones clave incluyen:</p>
             <ul>
@@ -277,7 +302,7 @@
             </ul>
             <a href="datos.html" class="btn-link">Ver Datos y Estadísticas Clave</a>
             <div id="additional-info">
-                <p>Cada pequeño gesto cuenta. Reduce tu consumo, reutiliza, recicla y participa en campañas de limpieza de tu comunidad. Juntos podemos hacer de Guayaquil una ciudad más limpia y saludable.</p>
+                <p style="text-align: center; font-size: 1.1rem; font-style: italic;">Cada pequeño gesto cuenta. Reduce tu consumo, reutiliza, recicla y participa en campañas de limpieza de tu comunidad. Juntos podemos hacer de Guayaquil una ciudad más limpia y saludable.</p>
                 <div class="gallery">
                     <img src="https://guayaquil.gob.ec/wp-content/uploads/2025/04/EN-GUA1.jpg" alt="Imagen de limpieza comunitaria">
                     <img src="https://www.elcomercio.com/wp-content/uploads/2022/03/siembraton-4-1.jpg" alt="Imagen de plantación de árboles">
@@ -290,6 +315,72 @@
     <footer>
         <p>&copy; 2025 Información sobre la Contaminación en Guayaquil. Todos los derechos reservados.</p>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Inicializa particles.js
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": { "enable": true, "value_area": 800 }
+                },
+                "color": { "value": "#ffffff" },
+                "shape": { "type": "circle" },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": { "enable": false }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": { "enable": false }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": { "enable": true, "mode": "grab" },
+                    "onclick": { "enable": true, "mode": "push" },
+                    "resize": true
+                }
+            }
+        });
+
+        // Animación de entrada de secciones
+        const sections = document.querySelectorAll('.section');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
 
 </body>
 </html>
